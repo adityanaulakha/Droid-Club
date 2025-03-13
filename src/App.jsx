@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRouter from "./routes/Router";
 import Loader from "./components/Loader";
+import ClickSpark from "./components/ClickSpark";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,9 +32,13 @@ function App() {
           </div>
         ) : (
           <div className="animate-fadeIn text-white">
-            <Navbar />
-            <AppRouter />
-            <Footer />
+
+            <ClickSpark sparkColor='#9d4edd' sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
+              <Navbar />
+              <AppRouter />
+              <Footer />
+            </ClickSpark>
+
           </div>
         )}
       </Router>

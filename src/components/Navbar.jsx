@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ClickSpark from "./ClickSpark";
 
 
 export default function Navbar() {
@@ -10,8 +9,10 @@ export default function Navbar() {
   // Navigation links
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
+    { name: "Teams", path: "/teams" },
+    { name: "Events", path: "/events" },
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -44,12 +45,10 @@ export default function Navbar() {
                     : "text-gray-300 hover:text-white"
                 }`}
               >
-                <ClickSpark>
                   {link.name}
                   {location.pathname === link.path && (
                     <span className="absolute -ml-1 -left-1 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-purple-600 rounded-full"></span>
                   )}
-                </ClickSpark>
               </Link>
             ))}
           </div>
