@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import AppRouter from "./routes/Router";
 import Loader from "./components/Loader";
 
@@ -31,9 +31,9 @@ function App() {
           </div>
         ) : (
           <div className="animate-fadeIn text-white">
-            {/* <Navbar /> */}
+            <Navbar />
             <AppRouter />
-            {/* <Footer /> */}
+            <Footer />
           </div>
         )}
       </Router>
