@@ -15,7 +15,7 @@ function App() {
       setTimeout(() => {
         setLoading(false);
       }, 500); // Extra time for smooth fade-out
-    }, 2000); // Loader visible for 2 seconds
+    }, 2500); // Loader visible for 2 seconds
   }, []);
 
   return (
