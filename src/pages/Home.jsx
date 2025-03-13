@@ -1,5 +1,5 @@
-import Aurora from "../components/Aurora";
-import RotatingText from '../components/RotatingText';
+import Aurora from "../components/Home/Aurora";
+import RotatingText from '../components/Home/RotatingText';
 
 export default function Home() {
   return (
