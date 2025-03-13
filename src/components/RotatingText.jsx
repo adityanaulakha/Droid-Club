@@ -37,6 +37,33 @@ const RotatingText = forwardRef((props, ref) => {
   } = props;
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
+  });
+
+  // Track window size for responsive adjustments
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    
+    // Initial size
+    handleResize();
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   const splitIntoCharacters = (text) => {
     if (typeof Intl !== "undefined" && Intl.Segmenter) {
@@ -74,22 +101,31 @@ const RotatingText = forwardRef((props, ref) => {
     }));
   }, [texts, currentTextIndex, splitBy]);
 
+  // Adjust stagger duration based on device size
+  const adjustedStaggerDuration = useMemo(() => {
+    // Faster animations on mobile for better UX
+    if (windowSize.width < 640) {
+      return staggerDuration * 0.8;
+    }
+    return staggerDuration;
+  }, [staggerDuration, windowSize.width]);
+
   const getStaggerDelay = useCallback(
     (index, totalChars) => {
       const total = totalChars;
-      if (staggerFrom === "first") return index * staggerDuration;
-      if (staggerFrom === "last") return (total - 1 - index) * staggerDuration;
+      if (staggerFrom === "first") return index * adjustedStaggerDuration;
+      if (staggerFrom === "last") return (total - 1 - index) * adjustedStaggerDuration;
       if (staggerFrom === "center") {
         const center = Math.floor(total / 2);
-        return Math.abs(center - index) * staggerDuration;
+        return Math.abs(center - index) * adjustedStaggerDuration;
       }
       if (staggerFrom === "random") {
         const randomIndex = Math.floor(Math.random() * total);
-        return Math.abs(randomIndex - index) * staggerDuration;
+        return Math.abs(randomIndex - index) * adjustedStaggerDuration;
       }
-      return Math.abs(staggerFrom - index) * staggerDuration;
+      return Math.abs(staggerFrom - index) * adjustedStaggerDuration;
     },
-    [staggerFrom, staggerDuration]
+    [staggerFrom, adjustedStaggerDuration]
   );
 
   const handleIndexChange = useCallback(
@@ -157,6 +193,19 @@ const RotatingText = forwardRef((props, ref) => {
     return () => clearInterval(intervalId);
   }, [next, rotationInterval, auto]);
 
+  // Adjust animation transitions based on device capabilities
+  const responsiveTransition = useMemo(() => {
+    // Simpler animations for mobile devices
+    if (windowSize.width < 640) {
+      return {
+        ...transition,
+        type: "tween", // Use simpler animation type on mobile
+        duration: 0.3
+      };
+    }
+    return transition;
+  }, [transition, windowSize.width]);
+
   return (
     <motion.span
       className={cn(
@@ -165,7 +214,7 @@ const RotatingText = forwardRef((props, ref) => {
       )}
       {...rest}
       layout
-      transition={transition}
+      transition={responsiveTransition}
     >
       {/* Screen-reader only text */}
       <span className="sr-only">{texts[currentTextIndex]}</span>
@@ -193,7 +242,7 @@ const RotatingText = forwardRef((props, ref) => {
                     animate={animate}
                     exit={exit}
                     transition={{
-                      ...transition,
+                      ...responsiveTransition,
                       delay: getStaggerDelay(
                         previousCharsCount + charIndex,
                         array.reduce((sum, word) => sum + word.characters.length, 0)

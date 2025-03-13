@@ -5,8 +5,7 @@ const VERT = `#version 300 es
 in vec2 position;
 void main() {
   gl_Position = vec4(position, 0.0, 1.0);
-}
-`;
+}`;
 
 const FRAG = `#version 300 es
 precision highp float;
@@ -68,18 +67,18 @@ struct ColorStop {
   float position;
 };
 
-#define COLOR_RAMP(colors, factor, finalColor) {              \
-  int index = 0;                                            \
-  for (int i = 0; i < 2; i++) {                               \
-     ColorStop currentColor = colors[i];                    \
-     bool isInBetween = currentColor.position <= factor;    \
-     index = int(mix(float(index), float(i), float(isInBetween))); \
-  }                                                         \
-  ColorStop currentColor = colors[index];                   \
-  ColorStop nextColor = colors[index + 1];                  \
-  float range = nextColor.position - currentColor.position; \
-  float lerpFactor = (factor - currentColor.position) / range; \
-  finalColor = mix(currentColor.color, nextColor.color, lerpFactor); \
+#define COLOR_RAMP(colors, factor, finalColor) {              \\
+  int index = 0;                                            \\
+  for (int i = 0; i < 2; i++) {                               \\
+     ColorStop currentColor = colors[i];                    \\
+     bool isInBetween = currentColor.position <= factor;    \\
+     index = int(mix(float(index), float(i), float(isInBetween))); \\
+  }                                                         \\
+  ColorStop currentColor = colors[index];                   \\
+  ColorStop nextColor = colors[index + 1];                  \\
+  float range = nextColor.position - currentColor.position; \\
+  float lerpFactor = (factor - currentColor.position) / range; \\
+  finalColor = mix(currentColor.color, nextColor.color, lerpFactor); \\
 }
 
 void main() {
@@ -106,8 +105,7 @@ void main() {
   
   // Premultiplied alpha output.
   fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
-}
-`;
+}`;
 
 export default function Aurora(props) {
   const {
@@ -134,19 +132,33 @@ export default function Aurora(props) {
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = 'transparent';
+    
+    // Make canvas responsive
+    gl.canvas.style.width = '100%';
+    gl.canvas.style.height = '100%';
+    gl.canvas.style.touchAction = 'none'; // Prevents default touch actions on mobile
 
     let program;
 
     function resize() {
       if (!ctn) return;
+      
+      // Get device pixel ratio for better resolution on high-DPI displays
+      const pixelRatio = window.devicePixelRatio || 1;
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
+      
+      // Update renderer size with pixel ratio for sharp rendering
       renderer.setSize(width, height);
+      
       if (program) {
         program.uniforms.uResolution.value = [width, height];
       }
     }
+    
+    // Listen to resize events and orientation changes for mobile
     window.addEventListener("resize", resize);
+    window.addEventListener("orientationchange", resize);
 
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
@@ -189,11 +201,13 @@ export default function Aurora(props) {
     };
     animateId = requestAnimationFrame(update);
 
+    // Initial resize to ensure proper rendering
     resize();
 
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("orientationchange", resize);
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
       }
