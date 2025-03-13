@@ -12,7 +12,7 @@ export default function Home() {
       {/* Content Overlay */}
       <header className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
         <div className="flex flex-col sm:flex-row items-center gap-2 text-center">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Droid Club</span>
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">Droid</span>
           <RotatingText
             texts={['Think', 'Innovate', 'Apply']}
             mainClassName="font-bold px-2 sm:px-2 md:px-3 bg-[#9d4edd] text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
