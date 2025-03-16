@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Brand Section */}
         <div>
           {/* <h2 className="text-2xl font-bold text-white">Droid Club</h2> */}
-          <img src="/DroidWhite.png" alt="Droid Logo" className="w-24 h-auto"/>
+          <img src="/DroidWhite.png" alt="Droid Logo" className="w-20 h-auto"/>
           <p className="mt-2 text-sm">
             Innovate. Build. Create. Join the revolution in tech and robotics with Droid Club.
           </p>
@@ -28,10 +28,15 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white">Follow Us</h3>
           <div className="flex space-x-4 mt-2">
-            <FaFacebookF className="text-xl hover:text-white cursor-pointer" />
-            <FaInstagram className="text-xl hover:text-white cursor-pointer" />
+            {/* <FaFacebookF className="text-xl hover:text-white cursor-pointer" /> */}
+            <a href="https://www.instagram.com/droid_glau/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram className="text-xl hover:text-white cursor-pointer" />
+            </a>
+            <a href="https://www.linkedin.com/company/droid-glau/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin className="text-xl hover:text-white cursor-pointer" />
+            </a>
             <FaTwitter className="text-xl hover:text-white cursor-pointer" />
-            <FaLinkedin className="text-xl hover:text-white cursor-pointer" />
+            <FaGithub className="text-xl hover:text-white cursor-pointer" />
           </div>
           {/* <h3 className="text-lg font-semibold text-white mt-4">Subscribe to Newsletter</h3>
           <div className="mt-2 flex">

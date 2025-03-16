@@ -13,7 +13,7 @@ export default function Navbar() {
     { name: "Teams", path: "/teams" },
     { name: "Events", path: "/events" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact-us" },
   ];
 
   // Close mobile menu when changing routes
