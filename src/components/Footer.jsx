@@ -18,10 +18,11 @@ const Footer = () => {
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold text-white">Quick Links</h3>
           <a href="#" className="hover:text-white">Home</a>
-          <a href="#" className="hover:text-white">About Us</a>
           <a href="#" className="hover:text-white">Projects</a>
+          <a href="#" className="hover:text-white">Teams</a>
           <a href="#" className="hover:text-white">Events</a>
-          <a href="#" className="hover:text-white">Contact</a>
+          <a href="#" className="hover:text-white">About</a>
+          <a href="#" className="hover:text-white">Contact Us</a>
         </div>
 
         {/* Social Media & Newsletter */}
