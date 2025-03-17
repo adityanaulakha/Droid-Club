@@ -41,7 +41,7 @@ export default function Home() {
       {/* Squares Section - Placed Below */}
       <section className="relative w-full h-screen">
         <Squares 
-          speed={0.5} 
+          speed={0.7} 
           squareSize={40}
           direction="diagonal"
           borderColor="#5a189a"
