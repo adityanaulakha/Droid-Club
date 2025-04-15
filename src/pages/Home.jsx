@@ -53,7 +53,7 @@ export default function Home() {
           />
         </div>
         
-        {/* About Content */}
+        {/* About Section */}
         <div className="relative z-10 w-full h-full flex flex-col items-center">
           {/* Section Title */}
           <div className="w-full text-center px-4 sm:px-6 lg:px-8 mt-8 mb-4">
