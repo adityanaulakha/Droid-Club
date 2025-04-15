@@ -56,6 +56,7 @@ const Footer = () => {
 
       {/* Copyright & Terms */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+        <p>Made with 💻 by Droid Club!!</p>
         <p>© 2025 Droid Club. All rights reserved.</p>
         {/* <div className="mt-2 flex justify-center space-x-4">
           <a href="#" className="hover:text-white">Privacy Policy</a>
