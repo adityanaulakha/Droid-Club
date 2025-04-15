@@ -1,6 +1,7 @@
 import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
 import Squares from "../components/Home/Squares";
+import TrueFocus from "../components/Home/TrueFocus";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* Squares Section - Placed Below */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full h-screen overflow-hidden">
         <Squares 
           speed={0.7} 
           squareSize={40}
@@ -47,6 +48,17 @@ export default function Home() {
           borderColor="#5a189a"
           hoverFillColor="#9d4edd"
         />
+        {/* TrueFocus overlayed on top center */}
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10">
+        <TrueFocus 
+          sentence="ABOUT DROID"
+          manualMode={false}
+          blurAmount={5}
+          borderColor="purple"
+          animationDuration={1.5}
+          pauseBetweenAnimations={1}
+        />
+      </div>
       </section>
     </div>
   );
