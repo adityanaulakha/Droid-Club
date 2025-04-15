@@ -7,7 +7,7 @@ export default function Home() {
     <div className="relative w-full bg-black overflow-hidden">
       {/* Hero Section - Aurora + Rotating Text */}
       <section className="relative flex flex-col items-center justify-center h-screen w-full text-white">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 pointer-events-none">
           <Aurora 
             colorStops={["#5a189a", "#7b2cbf", "#9d4edd"]} 
             blend={0.5} 
