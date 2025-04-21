@@ -4,7 +4,7 @@ import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
 import Squares from "../components/Home/Squares";
 import TrueFocus from "../components/Home/TrueFocus";
-import RollingGallery from "../components/Home/RollingGallery";
+import CircularGallery from "../components/Home/CircularGallery";
 
 export default function Home() {
   return (
@@ -220,10 +220,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rolling Gallery Section */}
-      <section className="relative py-12 bg-black">
-        <h1 className="text-center font-extrabold text-5xl">DROID <span className="text-[#9d4edd] underline">GALLERY</span></h1>
-        <RollingGallery autoplay={true} pauseOnHover={true} />
+      {/* Circular Gallery Section */}
+      <section className="relative py-16 bg-black">
+      <div style={{ height: '600px', position: 'relative' }}>
+        <h1 className="text-6xl text-center font-extrabold "><span className="text-[#9d4edd] underline">GALLERY</span></h1>
+        <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+      </div>
       </section>
     </div>
   );
