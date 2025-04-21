@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
+
 import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
 import Squares from "../components/Home/Squares";
 import TrueFocus from "../components/Home/TrueFocus";
-import { motion } from "framer-motion";
+import RollingGallery from "../components/Home/RollingGallery";
 
 export default function Home() {
   return (
@@ -216,6 +218,12 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Rolling Gallery Section */}
+      <section className="relative py-12 bg-black">
+        <h1 className="text-center font-extrabold text-5xl">DROID <span className="text-[#9d4edd] underline">GALLERY</span></h1>
+        <RollingGallery autoplay={true} pauseOnHover={true} />
       </section>
     </div>
   );
