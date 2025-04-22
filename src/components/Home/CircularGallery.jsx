@@ -461,14 +461,37 @@ export default function CircularGallery({
   borderRadius = 0.05,
   font = "bold 30px DM Sans"
 }) {
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
+  const appRef = useRef(null);
+
   useEffect(() => {
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font })
+    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font });
+    appRef.current = app;
+
     return () => {
-      app.destroy()
+      app.destroy();
+    };
+  }, [items, bend, textColor, borderRadius, font]);
+
+  const handleMouseEnter = () => {
+    if (appRef.current) {
+      appRef.current.scroll.target = appRef.current.scroll.current; // Reset target to current position
+      appRef.current.scroll.ease = 0.05; // Resume rotation
     }
-  }, [items, bend, textColor, borderRadius, font])
+  };
+
+  const handleMouseLeave = () => {
+    if (appRef.current) {
+      appRef.current.scroll.ease = 0; // Pause rotation
+    }
+  };
+
   return (
-    <div className='w-full h-full overflow-hidden cursor-grab active:cursor-grabbing' ref={containerRef} />
-  )
+    <div
+      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
+      ref={containerRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    />
+  );
 }
