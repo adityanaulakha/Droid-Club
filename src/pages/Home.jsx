@@ -5,6 +5,7 @@ import RotatingText from "../components/Home/RotatingText";
 import Squares from "../components/Home/Squares";
 import TrueFocus from "../components/Home/TrueFocus";
 import CircularGallery from "../components/Home/CircularGallery";
+import TeamSection from "../components/Home/TeamSection";
 
 export default function Home() {
   return (
@@ -227,6 +228,9 @@ export default function Home() {
         <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
       </div>
       </section>
+
+      {/* Team Section */}
+      <TeamSection/>
     </div>
   );
 }
