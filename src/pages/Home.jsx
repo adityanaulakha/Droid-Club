@@ -195,7 +195,7 @@ export default function Home() {
                       className="p-5 rounded-lg border border-[#5a189a]/30 hover:bg-[#5a189a]/20 transition-colors"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.55 }}
+                      transition={{ delay: 0.5 }}
                       viewport={{ once: true }}
                     >
                       <h3 className="font-bold text-xl mb-3 text-center">Human-Centered</h3>
@@ -207,7 +207,7 @@ export default function Home() {
                       className="p-5 rounded-lg border border-[#5a189a]/30 hover:bg-[#5a189a]/20 transition-colors"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.7 }}
+                      transition={{ delay: 0.6 }}
                       viewport={{ once: true }}
                     >
                       <h3 className="font-bold text-xl mb-3 text-center">Technical Excellence</h3>
