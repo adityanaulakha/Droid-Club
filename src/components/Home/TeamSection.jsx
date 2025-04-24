@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import President from "../../assets/President.png";
 import VicePresident from "../../assets/Vice-President.jpg";
 import GeneralSecretary from "../../assets/General-Secretary.png";
-import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const teamMembers = [
   {
