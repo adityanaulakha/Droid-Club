@@ -4,8 +4,25 @@ import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
 import Squares from "../components/Home/Squares";
 import TrueFocus from "../components/Home/TrueFocus";
-import CircularGallery from "../components/Home/CircularGallery";
+// import CircularGallery from "../components/Home/CircularGallery";
+import Mansory from "../components/Home/Mansory";
 import TeamSection from "../components/Home/TeamSection";
+
+const data = [
+
+  { id: 1, image: 'https://picsum.photos/id/10/200/300', height: 400 },
+  { id: 2, image: 'https://picsum.photos/id/14/200/300', height: 300 },
+  { id: 3, image: 'https://picsum.photos/id/15/200/300', height: 300 },
+  { id: 4, image: 'https://picsum.photos/id/16/200/300', height: 300 },
+  { id: 5, image: 'https://picsum.photos/id/17/200/300', height: 300 },
+  { id: 6, image: 'https://picsum.photos/id/19/200/300', height: 300 },
+  { id: 7, image: 'https://picsum.photos/id/37/200/300', height: 200 },
+  { id: 8, image: 'https://picsum.photos/id/39/200/300', height: 300 },
+  { id: 9, image: 'https://picsum.photos/id/85/200/300', height: 200 },
+  { id: 10, image: 'https://picsum.photos/id/103/200/300', height: 400 },
+  { id: 11, image: 'https://picsum.photos/id/14/200/300', height: 300 },
+  { id: 12, image: 'https://picsum.photos/id/85/200/300', height: 300 }
+];
 
 export default function Home() {
   return (
@@ -222,11 +239,19 @@ export default function Home() {
       </section>
 
       {/* Circular Gallery Section */}
-      <section className="relative py-16 bg-black">
+      {/* <section className="relative py-16 bg-black">
       <div style={{ height: '600px', position: 'relative' }}>
         <h1 className="text-6xl text-center font-extrabold "><span className="text-[#9d4edd] underline">GALLERY</span></h1>
         <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
       </div>
+      </section> */}
+
+      {/* Masonry Gallery Section */}
+      <section className="relative py-10 bg-black">
+        <div style={{ height: '600px', position: 'relative' }}>
+          <h1 className="text-6xl text-center font-extrabold pb-8"><span className="text-[#9d4edd] underline">GALLERY</span></h1>
+          <Mansory data={data} />
+        </div>
       </section>
 
       {/* Team Section */}
