@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import President from "../../assets/President.png";
@@ -26,6 +26,29 @@ const teamMembers = [
 
 export default function TeamSection() {
   const navigate = useNavigate();
+  const [activeIndex, setActiveIndex] = useState(null);
+  const cardsRef = useRef([]);
+
+  const handleCardClick = (index) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        cardsRef.current.every(
+          (card) => card && !card.contains(event.target)
+        )
+      ) {
+        setActiveIndex(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <section className="w-full bg-black text-white relative">
@@ -53,26 +76,38 @@ export default function TeamSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center py-10">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="relative group w-64 h-80 rounded-xl overflow-hidden shadow-lg border border-[#9d4edd]/50"
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                <p className="text-sm text-[#9d4edd] mt-2">{member.position}</p>
-              </div>
-            </motion.div>
-          ))}
+          {teamMembers.map((member, index) => {
+            const isActive = activeIndex === index;
+
+            return (
+              <motion.div
+                key={index}
+                ref={(el) => (cardsRef.current[index] = el)}
+                onClick={() => handleCardClick(index)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="relative group w-64 h-80 rounded-xl overflow-hidden shadow-lg border border-[#9d4edd]/50 cursor-pointer"
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div
+                  className={`absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center transition-opacity duration-300 ${
+                    isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                  }`}
+                >
+                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                  <p className="text-sm text-[#9d4edd] mt-2">
+                    {member.position}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
