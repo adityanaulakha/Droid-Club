@@ -247,12 +247,12 @@ export default function Home() {
       </section> */}
 
       {/* Masonry Gallery Section */}
-      <section className="relative py-10 bg-black">
+      {/* <section className="relative py-10 bg-black">
         <div style={{ height: '600px', position: 'relative' }}>
           <h1 className="text-6xl text-center font-extrabold pb-8"><span className="text-[#9d4edd] underline">GALLERY</span></h1>
           <Mansory data={data} />
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section */}
       <TeamSection/>
