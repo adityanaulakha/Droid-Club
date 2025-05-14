@@ -4,11 +4,12 @@ import { Suspense, lazy } from "react";
 // Static imports
 import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
+import ImageCarousel from "../components/Home/ImageCarousel";
 
 // Lazy imports
 const Squares = lazy(() => import("../components/Home/Squares"));
 const TrueFocus = lazy(() => import("../components/Home/TrueFocus"));
-const RollingGallery = lazy(() => import("../components/Home/RollingGallery"));
+// const RollingGallery = lazy(() => import("../components/Home/RollingGallery"));
 const TeamSection = lazy(() => import("../components/Home/TeamSection"));
 
 export default function Home() {
@@ -184,18 +185,34 @@ export default function Home() {
       <section className="relative mt-10 bg-black">
         <div style={{ height: '600px', position: 'relative' }}>
           <h1 className="text-6xl text-center font-extrabold">
-            <span className="text-[#9d4edd] underline">GALLERY</span>
+            <span className="text-[#9d4edd] underline">Gallery</span>
           </h1>
           <Suspense fallback={<div>Loading gallery...</div>}>
-            <RollingGallery autoplay={true} pauseOnHover={true} />
+            {/* <RollingGallery autoplay={true} pauseOnHover={true} /> */}
+            <ImageCarousel autoplay={true} />
           </Suspense>
         </div>
       </section>
 
       {/* Team Section */}
+      <section className="relative mt-20 bg-black m-14">
       <Suspense fallback={<div>Loading team...</div>}>
         <TeamSection />
       </Suspense>
+      </section>
+
+      {/* Contact Section */}
+      <section className="relative mt-10 bg-black">
+        <div style={{ height: '600px', position: 'relative' }}>
+          <h1 className="text-6xl text-center font-extrabold">
+            <span className="text-[#9d4edd] underline">Connect with Droid</span>
+          </h1>
+          <Suspense fallback={<div>Loading ...</div>}>
+            
+          </Suspense>
+        </div>
+      </section>
+
     </div>
   );
 }

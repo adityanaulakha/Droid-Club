@@ -54,7 +54,7 @@ export default function TeamSection() {
     <section className="w-full bg-black text-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-6xl font-extrabold text-center mb-6">
-          <span className="text-[#9d4edd] underline">CLUB LEADS</span>
+          <span className="text-[#9d4edd] underline">Meet Our Leads</span>
         </h2>
 
         {/* Animated Button */}
