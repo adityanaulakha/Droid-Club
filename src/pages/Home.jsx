@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 import Aurora from "../components/Home/Aurora";
 import RotatingText from "../components/Home/RotatingText";
 import ImageCarousel from "../components/Home/ImageCarousel";
+import ContactForm from "../components/Home/ContactForm";
 
 // Lazy imports
 const Squares = lazy(() => import("../components/Home/Squares"));
@@ -202,17 +203,13 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="relative mt-10 bg-black">
-        <div style={{ height: '600px', position: 'relative' }}>
-          <h1 className="text-6xl text-center font-extrabold">
-            <span className="text-[#9d4edd] underline">Connect with Droid</span>
-          </h1>
-          <Suspense fallback={<div>Loading ...</div>}>
-            
+      <section className="relative mt-10 bg-black text-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <Suspense fallback={<div className="text-center">Loading ...</div>}>
+            <ContactForm />
           </Suspense>
         </div>
       </section>
-
     </div>
   );
 }
