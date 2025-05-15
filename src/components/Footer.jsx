@@ -23,7 +23,7 @@ const Footer = () => {
         
         {/* Brand Section */}
         <div>
-          <img src="/DroidWhite.png" alt="Droid Logo" className="w-20 h-auto" />
+          <img src="https://res.cloudinary.com/dqdtbavzj/image/upload/v1747304610/DroidWhite_sueaek.png" alt="Droid Logo" className="w-20 h-auto" />
           <p className="mt-2 text-sm">
             Innovate. Build. Create. Join the revolution in tech and robotics with Droid Club.
           </p>

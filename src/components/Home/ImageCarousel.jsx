@@ -1,4 +1,5 @@
-// components/ImageCarousel.tsx
+// components/ImageCarousel.jsx
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectCoverflow, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -7,14 +8,18 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 
 const images = [
-  "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747302409/IMG-20240911-WA0012_zquvcd.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747302408/IMG-20240916-WA0023_rrntxt.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747302397/IMG-20240921-WA0207_yaszsd.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747302393/IMG-20250214-WA0049_fwot1a.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301495/IMG-20241201-WA0208_uzntzb.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301505/IMG-20241127-WA0125_uehrwp.jpg",
+  "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301503/IMG-20241201-WA0300_dyhts5.jpg",
 ];
 
 export default function ImageCarousel() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <motion.div
       className="w-full max-w-7xl mx-auto px-4 py-16"
@@ -48,18 +53,42 @@ export default function ImageCarousel() {
         {images.map((src, i) => (
           <SwiperSlide
             key={i}
-            className="relative bg-white rounded-xl overflow-hidden shadow-2xl transition-all duration-500 scale-90 opacity-50 swiper-slide"
+            className="relative bg-white rounded-xl overflow-hidden shadow-2xl transition-all duration-500 scale-90 opacity-50 swiper-slide cursor-pointer"
+            onClick={() => setSelectedImage(src)}
           >
             <img
               src={src}
               alt={`Slide ${i}`}
-              className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+              className="w-full h-[300px] sm:h-[400px] md:h-[400px] object-cover"
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Style Swiper buttons */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-3xl w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-white text-3xl font-bold z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full View"
+              className="w-full h-auto max-h-[90vh] rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      )}
+
       <style jsx global>{`
         .swiper-slide-active {
           transform: scale(1) !important;

@@ -2,25 +2,25 @@ import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import President from "../../assets/President.png";
-import VicePresident from "../../assets/Vice-President.jpg";
-import GeneralSecretary from "../../assets/General-Secretary.png";
+// import President from "../../assets/President.png";
+// import VicePresident from "../../assets/Vice-President.jpg";
+// import GeneralSecretary from "../../assets/General-Secretary.png";
 
 const teamMembers = [
   {
     name: "Aditya Naulakha",
     position: "President",
-    image: President,
+    image: "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301086/President_i7gzlh.png",
   },
   {
     name: "Harshvardhan Gupta",
     position: "Vice President",
-    image: VicePresident,
+    image: "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301088/Vice-President_fyjqni.jpg",
   },
   {
     name: "Vaishnav P Ramesh",
     position: "General Secretary",
-    image: GeneralSecretary,
+    image: "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747301086/General-Secretary_unsdeb.png",
   },
 ];
 

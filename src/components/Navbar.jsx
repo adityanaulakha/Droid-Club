@@ -29,7 +29,7 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               {/* <span className="text-lg font-bold text-white">Droid Club</span> */}
-              <img src="/DroidWhite.png" alt="Droid Club Logo" className="h-auto w-8 "/>
+              <img src="https://res.cloudinary.com/dqdtbavzj/image/upload/v1747304610/DroidWhite_sueaek.png" alt="Droid Club Logo" className="h-auto w-8 "/>
             </Link>
           </div>
           
