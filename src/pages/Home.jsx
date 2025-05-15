@@ -10,7 +10,6 @@ import ContactForm from "../components/Home/ContactForm";
 // Lazy imports
 const Squares = lazy(() => import("../components/Home/Squares"));
 const TrueFocus = lazy(() => import("../components/Home/TrueFocus"));
-// const RollingGallery = lazy(() => import("../components/Home/RollingGallery"));
 const TeamSection = lazy(() => import("../components/Home/TeamSection"));
 
 export default function Home() {
@@ -196,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="relative mt-20 bg-black m-14">
+      <section className="relative bg-black m-14">
       <Suspense fallback={<div>Loading team...</div>}>
         <TeamSection />
       </Suspense>
