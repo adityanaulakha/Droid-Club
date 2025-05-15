@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="relative bg-black m-14">
+      <section className="relative bg-black m-10">
       <Suspense fallback={<div>Loading team...</div>}>
         <TeamSection />
       </Suspense>
