@@ -1,4 +1,3 @@
-// components/ImageCarousel.jsx
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectCoverflow, Autoplay } from "swiper/modules";
@@ -6,6 +5,7 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
+import "./ImageCarousel.css"; // 👈 Create this CSS file (see below)
 
 const images = [
   "https://res.cloudinary.com/dqdtbavzj/image/upload/v1747302409/IMG-20240911-WA0012_zquvcd.jpg",
@@ -53,13 +53,13 @@ export default function ImageCarousel() {
         {images.map((src, i) => (
           <SwiperSlide
             key={i}
-            className="relative bg-white rounded-xl overflow-hidden shadow-2xl transition-all duration-500 scale-90 opacity-50 swiper-slide cursor-pointer"
+            className="relative bg-white rounded-xl overflow-hidden shadow-2xl transition-all duration-500 scale-90 opacity-50 cursor-pointer"
             onClick={() => setSelectedImage(src)}
           >
             <img
               src={src}
               alt={`Slide ${i}`}
-              className="w-full h-[300px] sm:h-[400px] md:h-[400px] object-cover"
+              className="w-full h-[300px] sm:h-[400px] object-cover"
             />
           </SwiperSlide>
         ))}
@@ -88,33 +88,6 @@ export default function ImageCarousel() {
           </div>
         </div>
       )}
-
-      <style jsx global>{`
-        .swiper-slide-active {
-          transform: scale(1) !important;
-          opacity: 1 !important;
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-          background-color: rgba(0, 0, 0, 0.5);
-          color: white;
-          padding: 10px;
-          border-radius: 9999px;
-          transition: background-color 0.3s ease;
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-          background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-          font-size: 18px;
-          font-weight: bold;
-        }
-      `}</style>
     </motion.div>
   );
 }

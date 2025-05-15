@@ -42,7 +42,7 @@ export default function Home() {
               staggerDuration={0.025}
               splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
               transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
+              rotationInterval={2500}
             />
           </section>
         </div>
@@ -181,14 +181,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rolling Gallery Section */}
+      {/* Image Carousel Section */}
       <section className="relative mt-10 bg-black">
         <div style={{ height: '600px', position: 'relative' }}>
           <h1 className="text-6xl text-center font-extrabold">
             <span className="text-[#9d4edd] underline">Gallery</span>
           </h1>
+            <h6 className="text-center font-extrabold">(PS: Click to view better)</h6>
           <Suspense fallback={<div>Loading gallery...</div>}>
-            {/* <RollingGallery autoplay={true} pauseOnHover={true} /> */}
             <ImageCarousel autoplay={true} />
           </Suspense>
         </div>
@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section className="relative mt-10 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <Suspense fallback={<div className="text-center">Loading ...</div>}>
             <ContactForm />
           </Suspense>

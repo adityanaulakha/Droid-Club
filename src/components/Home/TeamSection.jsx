@@ -52,7 +52,7 @@ export default function TeamSection() {
 
   return (
     <section className="w-full bg-black text-white relative">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-6xl font-extrabold text-center mb-6">
           <span className="text-[#9d4edd] underline">Meet Our Leads</span>
         </h2>
