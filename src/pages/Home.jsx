@@ -185,7 +185,7 @@ export default function Home() {
       <section className="relative mt-10 bg-black">
         <div style={{ height: '600px', position: 'relative' }}>
           <h1 className="text-6xl text-center font-extrabold">
-            <span className="text-[#9d4edd] underline">Gallery</span>
+            <span className="text-[#9d4edd] underline">GALLERY</span>
           </h1>
             <h6 className="text-center font-extrabold">(PS: Click to view better)</h6>
           <Suspense fallback={<div>Loading gallery...</div>}>
