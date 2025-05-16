@@ -1,6 +1,9 @@
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
   const socialLinks = [
     { icon: <FaInstagram />, url: "https://www.instagram.com/droid_glau/" },
     { icon: <FaLinkedin />, url: "https://www.linkedin.com/company/droid-glau/" },
@@ -9,12 +12,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#" },
-    { label: "Projects", href: "#" },
-    { label: "Teams", href: "#" },
-    { label: "Events", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Contact Us", href: "#" },
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/projects" },
+    { label: "Teams", href: "/teams" },
+    { label: "Events", href: "/events" },
+    { label: "About", href: "/about" },
+    { label: "Contact Us", href: "/contact-us" },
   ];
 
   return (
@@ -29,13 +32,22 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Quick Links (with router navigation and active state) */}
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold text-white">Quick Links</h3>
           {quickLinks.map(({ label, href }) => (
-            <a href={href} className="hover:text-white" key={label}>
+            <Link
+              to={href}
+              key={label}
+              className={`relative px-1 py-0.5 text-sm font-medium transition-all duration-300 ${
+                location.pathname === href
+                  ? "text-white"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
               {label}
-            </a>
+              {location.pathname === href }
+            </Link>
           ))}
         </div>
 
