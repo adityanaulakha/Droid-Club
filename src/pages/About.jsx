@@ -26,7 +26,7 @@ export default function About() {
           />
         ))}
       </div>
-      <div className="relative w-full max-w-6xl bg-black/80 border border-[#9d4edd] rounded-3xl shadow-2xl backdrop-blur-xl p-8 md:p-20 z-10">
+      <div className="relative w-full max-w-6xl bg-black/80 border border-[#9d4edd] rounded-3xl shadow-2xl backdrop-blur-xl p-8 md:p-20 z-10 mt-20">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
