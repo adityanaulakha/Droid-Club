@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
-import Events from "../pages/Events";
+// import Events from "../pages/Events";
 import Teams from "../pages/Teams";
 import ContactUs from "../pages/ContactUs";
 
@@ -12,7 +12,7 @@ const AppRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/projects" element={<Projects />} />
-      <Route path="/events" element={<Events />} />
+      {/* <Route path="/events" element={<Events />} /> */}
       <Route path="/teams" element={<Teams />} />
       <Route path="/contact-us" element={<ContactUs />} />
     </Routes>
