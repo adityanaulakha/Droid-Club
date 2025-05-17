@@ -28,13 +28,13 @@ export default function Home() {
 
         {/* Text Container */}
         <div className="flex flex-col sm:flex-row items-center gap-2 text-center z-10">
-          <section className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+          <section className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-bold">
             Droid
           </section>
           <section>
             <RotatingText
               texts={['Think', 'Innovate', 'Apply']}
-              mainClassName="font-bold px-2 sm:px-2 md:px-3 bg-[#9d4edd] text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
+              mainClassName="font-bold px-2 sm:px-2 md:px-3 bg-[#9d4edd] text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-3xl sm:text-3xl md:text-4xl lg:text-7xl"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -185,7 +185,7 @@ export default function Home() {
       <section className="relative mt-10 bg-black">
         <div style={{ height: '600px', position: 'relative' }}>
           <h1 className="text-6xl text-center font-extrabold">
-            <span className="text-[#9d4edd] underline">GALLERY</span>
+            <span className="text-[#9d4edd]">GALLERY</span>
           </h1>
             <h6 className="text-center font-extrabold">(PS: Click to view better)</h6>
           <Suspense fallback={<div>Loading gallery...</div>}>

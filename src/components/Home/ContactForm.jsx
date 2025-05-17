@@ -78,7 +78,7 @@ export default function ContactForm() {
       <section className="relative mt-10 bg-black text-white py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl text-center font-extrabold mb-12">
-            <span className="text-[#9d4edd] underline">CONTACT US</span>
+            <span className="text-[#9d4edd]">CONTACT US</span>
           </h1>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
