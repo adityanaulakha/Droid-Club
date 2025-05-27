@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 // import President from "../../assets/President.png";
 // import VicePresident from "../../assets/Vice-President.jpg";
@@ -54,7 +55,7 @@ export default function TeamSection() {
     <section className="w-full bg-black text-white relative">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-6xl font-extrabold text-center mb-6">
-          <span className="text-[#9d4edd] underline">Meet Our Leads</span>
+          <span className="text-[#9d4edd] underline">Our Leads🗿 </span>
         </h2>
 
         {/* Animated Button */}
@@ -69,9 +70,10 @@ export default function TeamSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/team")}
-            className="px-5 py-2 bg-[#9d4edd] text-white rounded-lg font-semibold hover:bg-[#7b2cbf] transition"
+            className="inline-flex items-center px-5 py-2 bg-[#9d4edd] text-white rounded-lg font-semibold hover:bg-[#7b2cbf] transition"
           >
             View Full Team
+            <ArrowRight className="ml-2 h-4 w-4" />
           </motion.button>
         </motion.div>
 
