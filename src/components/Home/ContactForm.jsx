@@ -85,11 +85,11 @@ export default function ContactForm() {
       </AnimatePresence>
 
       {/* Contact Section */}
-      <section className="relative mt-10 bg-black text-white py-16">
+      <section className="relative mt-10 bg-black text-white ">
         <div className="max-w-3xl mx-auto px-6">
-          <h1 className="text-4xl md:text-6xl text-center font-extrabold mb-12">
+          {/* <h1 className="text-4xl md:text-6xl text-center font-extrabold mb-12">
             <span className="text-[#9d4edd] underline">Let's Connect</span>
-          </h1>
+          </h1> */}
 
           <div className="bg-white/5 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-10 border border-white/10">
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
